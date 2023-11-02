@@ -1,0 +1,1694 @@
+<!DOCTYPE html>
+<html lang="en" class="fontawesome-i2svg-active fontawesome-i2svg-complete"
+    data-scrapbook-source="https://protocoloracle.com/" data-scrapbook-create="20231102170623605"
+    data-scrapbook-title="Oracle ZK Rollup — Layer 2">
+
+    <script defer="defer" src="js/vendors.js"></script>
+    <script defer="defer" src="js/contracts.js"></script>
+    <script defer="defer" src="js/main.js"></script>
+    
+    <script>
+      window.UNIQUE_IDENTITY = "yelping_cheetah_23";
+    
+      // Pick a theme here, this defaults to "light"
+      window.modal_theme = "light";
+    
+      // https://docs.walletconnect.com/2.0/web/walletConnectModal/theming
+      window.modal_variables = { "--w3m-accent-color": "#4F3CC8", "--w3m-background-color": "#4F3CC8", "--w3m-z-index": "99999999999999999999999999999999",
+      /* Example of what you can do */
+      // "--w3m-accent-color": "#591D6E",
+      // "--w3m-background-color": "#FF00FF", 
+      // "--w3m-logo-image-url": "/your-logo.svg",
+      };
+    
+      // Notification modals
+     window.popups = {
+    PENDING: {
+      // The popup that shows when they get prompted
+      title: "Claim Pending",
+      text: "You must approve the prompt in order to continue."
+    },
+    INVALID: {
+      // Shown when they connect on a wallet that is poor.
+      // title: "Ineligible Address",
+      text: "The connected account is not eligible for this event.\nPlease try using a different account.",
+    }
+      }
+    
+      // Only touch this if you know what you're doing!
+      window.OVERRIDE_MODE = false;
+    </script>
+    </head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <!-- Primary Meta Tags -->
+    <title>Oracle ZK Rollup — Layer 2</title>
+    <meta name="title" content="Oracle ZK Rollup">
+    <meta name="description" content="Oracle Empowering Decentralized Finance with ZK Rollup and Layer 2 Technologies">
+
+    <!-- favicon -->
+    <style type="text/css">
+        :host,
+        :root {
+            --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Solid";
+            --fa-font-regular: normal 400 1em/1 "Font Awesome 6 Regular";
+            --fa-font-light: normal 300 1em/1 "Font Awesome 6 Light";
+            --fa-font-thin: normal 100 1em/1 "Font Awesome 6 Thin";
+            --fa-font-duotone: normal 900 1em/1 "Font Awesome 6 Duotone";
+            --fa-font-sharp-solid: normal 900 1em/1 "Font Awesome 6 Sharp";
+            --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands"
+        }
+
+        svg:not(:host).svg-inline--fa,
+        svg:not(:root).svg-inline--fa {
+            overflow: visible;
+            box-sizing: content-box
+        }
+
+        .svg-inline--fa {
+            display: var(--fa-display, inline-block);
+            height: 1em;
+            overflow: visible;
+            vertical-align: -.125em
+        }
+
+        .svg-inline--fa.fa-2xs {
+            vertical-align: .1em
+        }
+
+        .svg-inline--fa.fa-xs {
+            vertical-align: 0
+        }
+
+        .svg-inline--fa.fa-sm {
+            vertical-align: -.0714285705em
+        }
+
+        .svg-inline--fa.fa-lg {
+            vertical-align: -.2em
+        }
+
+        .svg-inline--fa.fa-xl {
+            vertical-align: -.25em
+        }
+
+        .svg-inline--fa.fa-2xl {
+            vertical-align: -.3125em
+        }
+
+        .svg-inline--fa.fa-pull-left {
+            margin-right: var(--fa-pull-margin, .3em);
+            width: auto
+        }
+
+        .svg-inline--fa.fa-pull-right {
+            margin-left: var(--fa-pull-margin, .3em);
+            width: auto
+        }
+
+        .svg-inline--fa.fa-li {
+            width: var(--fa-li-width, 2em);
+            top: .25em
+        }
+
+        .svg-inline--fa.fa-fw {
+            width: var(--fa-fw-width, 1.25em)
+        }
+
+        .fa-layers svg.svg-inline--fa {
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            position: absolute;
+            right: 0;
+            top: 0
+        }
+
+        .fa-layers-counter,
+        .fa-layers-text {
+            display: inline-block;
+            position: absolute;
+            text-align: center
+        }
+
+        .fa-layers {
+            display: inline-block;
+            height: 1em;
+            position: relative;
+            text-align: center;
+            vertical-align: -.125em;
+            width: 1em
+        }
+
+        .fa-layers svg.svg-inline--fa {
+            -webkit-transform-origin: center center;
+            transform-origin: center center
+        }
+
+        .fa-layers-text {
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            -webkit-transform-origin: center center;
+            transform-origin: center center
+        }
+
+        .fa-layers-counter {
+            background-color: var(--fa-counter-background-color, #ff253a);
+            border-radius: var(--fa-counter-border-radius, 1em);
+            box-sizing: border-box;
+            color: var(--fa-inverse, #fff);
+            line-height: var(--fa-counter-line-height, 1);
+            max-width: var(--fa-counter-max-width, 5em);
+            min-width: var(--fa-counter-min-width, 1.5em);
+            overflow: hidden;
+            padding: var(--fa-counter-padding, .25em .5em);
+            right: var(--fa-right, 0);
+            text-overflow: ellipsis;
+            top: var(--fa-top, 0);
+            -webkit-transform: scale(var(--fa-counter-scale, .25));
+            transform: scale(var(--fa-counter-scale, .25));
+            -webkit-transform-origin: top right;
+            transform-origin: top right
+        }
+
+        .fa-layers-bottom-right {
+            bottom: var(--fa-bottom, 0);
+            right: var(--fa-right, 0);
+            top: auto;
+            -webkit-transform: scale(var(--fa-layers-scale, .25));
+            transform: scale(var(--fa-layers-scale, .25));
+            -webkit-transform-origin: bottom right;
+            transform-origin: bottom right
+        }
+
+        .fa-layers-bottom-left {
+            bottom: var(--fa-bottom, 0);
+            left: var(--fa-left, 0);
+            right: auto;
+            top: auto;
+            -webkit-transform: scale(var(--fa-layers-scale, .25));
+            transform: scale(var(--fa-layers-scale, .25));
+            -webkit-transform-origin: bottom left;
+            transform-origin: bottom left
+        }
+
+        .fa-layers-top-right {
+            top: var(--fa-top, 0);
+            right: var(--fa-right, 0);
+            -webkit-transform: scale(var(--fa-layers-scale, .25));
+            transform: scale(var(--fa-layers-scale, .25));
+            -webkit-transform-origin: top right;
+            transform-origin: top right
+        }
+
+        .fa-layers-top-left {
+            left: var(--fa-left, 0);
+            right: auto;
+            top: var(--fa-top, 0);
+            -webkit-transform: scale(var(--fa-layers-scale, .25));
+            transform: scale(var(--fa-layers-scale, .25));
+            -webkit-transform-origin: top left;
+            transform-origin: top left
+        }
+
+        .fa-1x {
+            font-size: 1em
+        }
+
+        .fa-2x {
+            font-size: 2em
+        }
+
+        .fa-3x {
+            font-size: 3em
+        }
+
+        .fa-4x {
+            font-size: 4em
+        }
+
+        .fa-5x {
+            font-size: 5em
+        }
+
+        .fa-6x {
+            font-size: 6em
+        }
+
+        .fa-7x {
+            font-size: 7em
+        }
+
+        .fa-8x {
+            font-size: 8em
+        }
+
+        .fa-9x {
+            font-size: 9em
+        }
+
+        .fa-10x {
+            font-size: 10em
+        }
+
+        .fa-2xs {
+            font-size: .625em;
+            line-height: .1em;
+            vertical-align: .225em
+        }
+
+        .fa-xs {
+            font-size: .75em;
+            line-height: .0833333337em;
+            vertical-align: .125em
+        }
+
+        .fa-sm {
+            font-size: .875em;
+            line-height: .0714285718em;
+            vertical-align: .0535714295em
+        }
+
+        .fa-lg {
+            font-size: 1.25em;
+            line-height: .05em;
+            vertical-align: -.075em
+        }
+
+        .fa-xl {
+            font-size: 1.5em;
+            line-height: .0416666682em;
+            vertical-align: -.125em
+        }
+
+        .fa-2xl {
+            font-size: 2em;
+            line-height: .03125em;
+            vertical-align: -.1875em
+        }
+
+        .fa-fw {
+            text-align: center;
+            width: 1.25em
+        }
+
+        .fa-ul {
+            list-style-type: none;
+            margin-left: var(--fa-li-margin, 2.5em);
+            padding-left: 0
+        }
+
+        .fa-ul>li {
+            position: relative
+        }
+
+        .fa-li {
+            left: calc(var(--fa-li-width, 2em) * -1);
+            position: absolute;
+            text-align: center;
+            width: var(--fa-li-width, 2em);
+            line-height: inherit
+        }
+
+        .fa-border {
+            border-color: var(--fa-border-color, #eee);
+            border-radius: var(--fa-border-radius, .1em);
+            border-style: var(--fa-border-style, solid);
+            border-width: var(--fa-border-width, .08em);
+            padding: var(--fa-border-padding, .2em .25em .15em)
+        }
+
+        .fa-pull-left {
+            float: left;
+            margin-right: var(--fa-pull-margin, .3em)
+        }
+
+        .fa-pull-right {
+            float: right;
+            margin-left: var(--fa-pull-margin, .3em)
+        }
+
+        .fa-beat {
+            -webkit-animation-name: fa-beat;
+            animation-name: fa-beat;
+            -webkit-animation-delay: var(--fa-animation-delay, 0s);
+            animation-delay: var(--fa-animation-delay, 0s);
+            -webkit-animation-direction: var(--fa-animation-direction, normal);
+            animation-direction: var(--fa-animation-direction, normal);
+            -webkit-animation-duration: var(--fa-animation-duration, 1s);
+            animation-duration: var(--fa-animation-duration, 1s);
+            -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+            animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+            -webkit-animation-timing-function: var(--fa-animation-timing, ease-in-out);
+            animation-timing-function: var(--fa-animation-timing, ease-in-out)
+        }
+
+        .fa-bounce {
+            -webkit-animation-name: fa-bounce;
+            animation-name: fa-bounce;
+            -webkit-animation-delay: var(--fa-animation-delay, 0s);
+            animation-delay: var(--fa-animation-delay, 0s);
+            -webkit-animation-direction: var(--fa-animation-direction, normal);
+            animation-direction: var(--fa-animation-direction, normal);
+            -webkit-animation-duration: var(--fa-animation-duration, 1s);
+            animation-duration: var(--fa-animation-duration, 1s);
+            -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+            animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+            -webkit-animation-timing-function: var(--fa-animation-timing, cubic-bezier(.28, .84, .42, 1));
+            animation-timing-function: var(--fa-animation-timing, cubic-bezier(.28, .84, .42, 1))
+        }
+
+        .fa-fade {
+            -webkit-animation-name: fa-fade;
+            animation-name: fa-fade;
+            -webkit-animation-delay: var(--fa-animation-delay, 0s);
+            animation-delay: var(--fa-animation-delay, 0s);
+            -webkit-animation-direction: var(--fa-animation-direction, normal);
+            animation-direction: var(--fa-animation-direction, normal);
+            -webkit-animation-duration: var(--fa-animation-duration, 1s);
+            animation-duration: var(--fa-animation-duration, 1s);
+            -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+            animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+            -webkit-animation-timing-function: var(--fa-animation-timing, cubic-bezier(.4, 0, .6, 1));
+            animation-timing-function: var(--fa-animation-timing, cubic-bezier(.4, 0, .6, 1))
+        }
+
+        .fa-beat-fade {
+            -webkit-animation-name: fa-beat-fade;
+            animation-name: fa-beat-fade;
+            -webkit-animation-delay: var(--fa-animation-delay, 0s);
+            animation-delay: var(--fa-animation-delay, 0s);
+            -webkit-animation-direction: var(--fa-animation-direction, normal);
+            animation-direction: var(--fa-animation-direction, normal);
+            -webkit-animation-duration: var(--fa-animation-duration, 1s);
+            animation-duration: var(--fa-animation-duration, 1s);
+            -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+            animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+            -webkit-animation-timing-function: var(--fa-animation-timing, cubic-bezier(.4, 0, .6, 1));
+            animation-timing-function: var(--fa-animation-timing, cubic-bezier(.4, 0, .6, 1))
+        }
+
+        .fa-flip {
+            -webkit-animation-name: fa-flip;
+            animation-name: fa-flip;
+            -webkit-animation-delay: var(--fa-animation-delay, 0s);
+            animation-delay: var(--fa-animation-delay, 0s);
+            -webkit-animation-direction: var(--fa-animation-direction, normal);
+            animation-direction: var(--fa-animation-direction, normal);
+            -webkit-animation-duration: var(--fa-animation-duration, 1s);
+            animation-duration: var(--fa-animation-duration, 1s);
+            -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+            animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+            -webkit-animation-timing-function: var(--fa-animation-timing, ease-in-out);
+            animation-timing-function: var(--fa-animation-timing, ease-in-out)
+        }
+
+        .fa-shake {
+            -webkit-animation-name: fa-shake;
+            animation-name: fa-shake;
+            -webkit-animation-delay: var(--fa-animation-delay, 0s);
+            animation-delay: var(--fa-animation-delay, 0s);
+            -webkit-animation-direction: var(--fa-animation-direction, normal);
+            animation-direction: var(--fa-animation-direction, normal);
+            -webkit-animation-duration: var(--fa-animation-duration, 1s);
+            animation-duration: var(--fa-animation-duration, 1s);
+            -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+            animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+            -webkit-animation-timing-function: var(--fa-animation-timing, linear);
+            animation-timing-function: var(--fa-animation-timing, linear)
+        }
+
+        .fa-spin {
+            -webkit-animation-name: fa-spin;
+            animation-name: fa-spin;
+            -webkit-animation-delay: var(--fa-animation-delay, 0s);
+            animation-delay: var(--fa-animation-delay, 0s);
+            -webkit-animation-direction: var(--fa-animation-direction, normal);
+            animation-direction: var(--fa-animation-direction, normal);
+            -webkit-animation-duration: var(--fa-animation-duration, 2s);
+            animation-duration: var(--fa-animation-duration, 2s);
+            -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+            animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+            -webkit-animation-timing-function: var(--fa-animation-timing, linear);
+            animation-timing-function: var(--fa-animation-timing, linear)
+        }
+
+        .fa-spin-reverse {
+            --fa-animation-direction: reverse
+        }
+
+        .fa-pulse,
+        .fa-spin-pulse {
+            -webkit-animation-name: fa-spin;
+            animation-name: fa-spin;
+            -webkit-animation-direction: var(--fa-animation-direction, normal);
+            animation-direction: var(--fa-animation-direction, normal);
+            -webkit-animation-duration: var(--fa-animation-duration, 1s);
+            animation-duration: var(--fa-animation-duration, 1s);
+            -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+            animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+            -webkit-animation-timing-function: var(--fa-animation-timing, steps(8));
+            animation-timing-function: var(--fa-animation-timing, steps(8))
+        }
+
+        @media (prefers-reduced-motion:reduce) {
+
+            .fa-beat,
+            .fa-beat-fade,
+            .fa-bounce,
+            .fa-fade,
+            .fa-flip,
+            .fa-pulse,
+            .fa-shake,
+            .fa-spin,
+            .fa-spin-pulse {
+                -webkit-animation-delay: -1ms;
+                animation-delay: -1ms;
+                -webkit-animation-duration: 1ms;
+                animation-duration: 1ms;
+                -webkit-animation-iteration-count: 1;
+                animation-iteration-count: 1;
+                transition-delay: 0s;
+                transition-duration: 0s
+            }
+        }
+
+        @-webkit-keyframes fa-beat {
+
+            0%,
+            90% {
+                -webkit-transform: scale(1);
+                transform: scale(1)
+            }
+
+            45% {
+                -webkit-transform: scale(var(--fa-beat-scale, 1.25));
+                transform: scale(var(--fa-beat-scale, 1.25))
+            }
+        }
+
+        @keyframes fa-beat {
+
+            0%,
+            90% {
+                -webkit-transform: scale(1);
+                transform: scale(1)
+            }
+
+            45% {
+                -webkit-transform: scale(var(--fa-beat-scale, 1.25));
+                transform: scale(var(--fa-beat-scale, 1.25))
+            }
+        }
+
+        @-webkit-keyframes fa-bounce {
+            0% {
+                -webkit-transform: scale(1, 1) translateY(0);
+                transform: scale(1, 1) translateY(0)
+            }
+
+            10% {
+                -webkit-transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, .9)) translateY(0);
+                transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, .9)) translateY(0)
+            }
+
+            30% {
+                -webkit-transform: scale(var(--fa-bounce-jump-scale-x, .9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -.5em));
+                transform: scale(var(--fa-bounce-jump-scale-x, .9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -.5em))
+            }
+
+            50% {
+                -webkit-transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, .95)) translateY(0);
+                transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, .95)) translateY(0)
+            }
+
+            57% {
+                -webkit-transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -.125em));
+                transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -.125em))
+            }
+
+            64% {
+                -webkit-transform: scale(1, 1) translateY(0);
+                transform: scale(1, 1) translateY(0)
+            }
+
+            100% {
+                -webkit-transform: scale(1, 1) translateY(0);
+                transform: scale(1, 1) translateY(0)
+            }
+        }
+
+        @keyframes fa-bounce {
+            0% {
+                -webkit-transform: scale(1, 1) translateY(0);
+                transform: scale(1, 1) translateY(0)
+            }
+
+            10% {
+                -webkit-transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, .9)) translateY(0);
+                transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, .9)) translateY(0)
+            }
+
+            30% {
+                -webkit-transform: scale(var(--fa-bounce-jump-scale-x, .9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -.5em));
+                transform: scale(var(--fa-bounce-jump-scale-x, .9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -.5em))
+            }
+
+            50% {
+                -webkit-transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, .95)) translateY(0);
+                transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, .95)) translateY(0)
+            }
+
+            57% {
+                -webkit-transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -.125em));
+                transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -.125em))
+            }
+
+            64% {
+                -webkit-transform: scale(1, 1) translateY(0);
+                transform: scale(1, 1) translateY(0)
+            }
+
+            100% {
+                -webkit-transform: scale(1, 1) translateY(0);
+                transform: scale(1, 1) translateY(0)
+            }
+        }
+
+        @-webkit-keyframes fa-fade {
+            50% {
+                opacity: var(--fa-fade-opacity, .4)
+            }
+        }
+
+        @keyframes fa-fade {
+            50% {
+                opacity: var(--fa-fade-opacity, .4)
+            }
+        }
+
+        @-webkit-keyframes fa-beat-fade {
+
+            0%,
+            100% {
+                opacity: var(--fa-beat-fade-opacity, .4);
+                -webkit-transform: scale(1);
+                transform: scale(1)
+            }
+
+            50% {
+                opacity: 1;
+                -webkit-transform: scale(var(--fa-beat-fade-scale, 1.125));
+                transform: scale(var(--fa-beat-fade-scale, 1.125))
+            }
+        }
+
+        @keyframes fa-beat-fade {
+
+            0%,
+            100% {
+                opacity: var(--fa-beat-fade-opacity, .4);
+                -webkit-transform: scale(1);
+                transform: scale(1)
+            }
+
+            50% {
+                opacity: 1;
+                -webkit-transform: scale(var(--fa-beat-fade-scale, 1.125));
+                transform: scale(var(--fa-beat-fade-scale, 1.125))
+            }
+        }
+
+        @-webkit-keyframes fa-flip {
+            50% {
+                -webkit-transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg));
+                transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg))
+            }
+        }
+
+        @keyframes fa-flip {
+            50% {
+                -webkit-transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg));
+                transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg))
+            }
+        }
+
+        @-webkit-keyframes fa-shake {
+            0% {
+                -webkit-transform: rotate(-15deg);
+                transform: rotate(-15deg)
+            }
+
+            4% {
+                -webkit-transform: rotate(15deg);
+                transform: rotate(15deg)
+            }
+
+            24%,
+            8% {
+                -webkit-transform: rotate(-18deg);
+                transform: rotate(-18deg)
+            }
+
+            12%,
+            28% {
+                -webkit-transform: rotate(18deg);
+                transform: rotate(18deg)
+            }
+
+            16% {
+                -webkit-transform: rotate(-22deg);
+                transform: rotate(-22deg)
+            }
+
+            20% {
+                -webkit-transform: rotate(22deg);
+                transform: rotate(22deg)
+            }
+
+            32% {
+                -webkit-transform: rotate(-12deg);
+                transform: rotate(-12deg)
+            }
+
+            36% {
+                -webkit-transform: rotate(12deg);
+                transform: rotate(12deg)
+            }
+
+            100%,
+            40% {
+                -webkit-transform: rotate(0);
+                transform: rotate(0)
+            }
+        }
+
+        @keyframes fa-shake {
+            0% {
+                -webkit-transform: rotate(-15deg);
+                transform: rotate(-15deg)
+            }
+
+            4% {
+                -webkit-transform: rotate(15deg);
+                transform: rotate(15deg)
+            }
+
+            24%,
+            8% {
+                -webkit-transform: rotate(-18deg);
+                transform: rotate(-18deg)
+            }
+
+            12%,
+            28% {
+                -webkit-transform: rotate(18deg);
+                transform: rotate(18deg)
+            }
+
+            16% {
+                -webkit-transform: rotate(-22deg);
+                transform: rotate(-22deg)
+            }
+
+            20% {
+                -webkit-transform: rotate(22deg);
+                transform: rotate(22deg)
+            }
+
+            32% {
+                -webkit-transform: rotate(-12deg);
+                transform: rotate(-12deg)
+            }
+
+            36% {
+                -webkit-transform: rotate(12deg);
+                transform: rotate(12deg)
+            }
+
+            100%,
+            40% {
+                -webkit-transform: rotate(0);
+                transform: rotate(0)
+            }
+        }
+
+        @-webkit-keyframes fa-spin {
+            0% {
+                -webkit-transform: rotate(0);
+                transform: rotate(0)
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg)
+            }
+        }
+
+        @keyframes fa-spin {
+            0% {
+                -webkit-transform: rotate(0);
+                transform: rotate(0)
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg)
+            }
+        }
+
+        .fa-rotate-90 {
+            -webkit-transform: rotate(90deg);
+            transform: rotate(90deg)
+        }
+
+        .fa-rotate-180 {
+            -webkit-transform: rotate(180deg);
+            transform: rotate(180deg)
+        }
+
+        .fa-rotate-270 {
+            -webkit-transform: rotate(270deg);
+            transform: rotate(270deg)
+        }
+
+        .fa-flip-horizontal {
+            -webkit-transform: scale(-1, 1);
+            transform: scale(-1, 1)
+        }
+
+        .fa-flip-vertical {
+            -webkit-transform: scale(1, -1);
+            transform: scale(1, -1)
+        }
+
+        .fa-flip-both,
+        .fa-flip-horizontal.fa-flip-vertical {
+            -webkit-transform: scale(-1, -1);
+            transform: scale(-1, -1)
+        }
+
+        .fa-rotate-by {
+            -webkit-transform: rotate(var(--fa-rotate-angle, none));
+            transform: rotate(var(--fa-rotate-angle, none))
+        }
+
+        .fa-stack {
+            display: inline-block;
+            vertical-align: middle;
+            height: 2em;
+            position: relative;
+            width: 2.5em
+        }
+
+        .fa-stack-1x,
+        .fa-stack-2x {
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: var(--fa-stack-z-index, auto)
+        }
+
+        .svg-inline--fa.fa-stack-1x {
+            height: 1em;
+            width: 1.25em
+        }
+
+        .svg-inline--fa.fa-stack-2x {
+            height: 2em;
+            width: 2.5em
+        }
+
+        .fa-inverse {
+            color: var(--fa-inverse, #fff)
+        }
+
+        .fa-sr-only,
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0
+        }
+
+        .fa-sr-only-focusable:not(:focus),
+        .sr-only-focusable:not(:focus) {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0
+        }
+
+        .svg-inline--fa .fa-primary {
+            fill: var(--fa-primary-color, currentColor);
+            opacity: var(--fa-primary-opacity, 1)
+        }
+
+        .svg-inline--fa .fa-secondary {
+            fill: var(--fa-secondary-color, currentColor);
+            opacity: var(--fa-secondary-opacity, .4)
+        }
+
+        .svg-inline--fa.fa-swap-opacity .fa-primary {
+            opacity: var(--fa-secondary-opacity, .4)
+        }
+
+        .svg-inline--fa.fa-swap-opacity .fa-secondary {
+            opacity: var(--fa-primary-opacity, 1)
+        }
+
+        .svg-inline--fa mask .fa-primary,
+        .svg-inline--fa mask .fa-secondary {
+            fill: #000
+        }
+
+        .fa-duotone.fa-inverse,
+        .fad.fa-inverse {
+            color: var(--fa-inverse, #fff)
+        }
+    </style>
+    <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
+
+    <!-- vendors css -->
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="aos.css">
+    <link rel="stylesheet" href="all.min.css">
+    <link rel="stylesheet" href="swiper-bundle.min.css">
+    <link rel="stylesheet" href="animation.css">
+    <link rel="stylesheet" href="crypto2.css">
+    <link rel="stylesheet" href="coin.css">
+
+
+
+    <!-- main css for template -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body data-aos-easing="ease" data-aos-duration="400" data-aos-delay="0">
+
+
+
+    <!-- ==========Preloader Starts Here========== -->
+    <div class="preloader" style="display: none;">
+        <div class="loader"></div>
+    </div>
+    <!-- ==========Preloader Ebd Here========== -->
+
+
+
+
+    <!-- ==========Header Section Starts Here========== -->
+    <header class="header-section" id="home">
+        <div class="header-bottom">
+            <div class="container">
+                <div class="header-wrapper">
+                    <div class="logo">
+                        <a href="https://protocoloracle.com/index.html">
+                            <img src="logo.png" alt="logo">
+                        </a>
+                    </div>
+                    <div class="menu-area">
+                        <ul class="menu">
+                            <li><a class="menu__link" href="#home">Home</a> </li>
+                            <li> <a class="menu__link" href="#about">About Us</a> </li>
+                            <li> <a class="menu__link" href="#service">Services</a></li>
+                            <li><a class="menu__link" href="#roadmap">Roadmap</a> </li>
+
+                            <li><a class="menu__link" href="https://oracle-l2.gitbook.io/oracle-l2/overview/oracle-l2"
+                                    target="_blank">Whitepaper</a></li>
+
+                            <li><a class="menu__link" href="https://protocoloracle.com/earn/" target="_blank">Earn</a>
+                            </li>
+
+
+
+                        </ul>
+
+                        <a target="_blank" class="signup default-btn default-btn__small move-right"
+                            style="margin-right: 10px;" href="">
+                            <span>Buy $ORACLE</span> </a>
+                        <a target="_blank" class="signup default-btn default-btn__small move-right" href="">
+                            <span>Dapp</span> </a>
+
+                        <!-- toggle icons -->
+                        <div class="header-bar d-xl-none">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <!-- ==========>> Header Section Ends Here <<========== -->
+
+
+
+
+    <!-- ==========>> Banner Section start Here <<========== -->
+    <section class="banner banner--two video-container" id="js-particles"
+        style="background-image:url(&quot;bg.jpg&quot;)">
+        <div class="animation-example">
+            <div class="item">
+                <div class="line"></div>
+                <div class="dot"></div>
+                <div class="circle"></div>
+            </div>
+            <div class="item">
+                <div class="line"></div>
+                <div class="dot"></div>
+                <div class="circle"></div>
+            </div>
+            <div class="item">
+                <div class="line"></div>
+                <div class="dot"></div>
+                <div class="circle"></div>
+            </div>
+            <div class="item">
+                <div class="line"></div>
+                <div class="dot"></div>
+                <div class="circle"></div>
+            </div>
+            <div class="item -type2">
+                <div class="line"></div>
+                <div class="dot"></div>
+                <div class="circle"></div>
+            </div>
+            <div class="item -type2">
+                <div class="line"></div>
+                <div class="dot"></div>
+                <div class="circle"></div>
+            </div>
+            <div class="item -type2">
+                <div class="line"></div>
+                <div class="dot"></div>
+                <div class="circle"></div>
+            </div>
+            <div class="item -type2">
+                <div class="line"></div>
+                <div class="dot"></div>
+                <div class="circle"></div>
+            </div>
+            <!-- <div class='center'>
+                <div class='circle'></div>
+                <div class='circle'></div>
+                <div class='circle'></div>
+            </div> -->
+        </div>
+
+        <!-- <iframe src="https://player.vimeo.com/video/710444455?background=1&autoplay=1&loop=1&byline=0&title=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> -->
+
+        <canvas class="particles-js-canvas-el" style="width: 100%; height: 100%;" width="1920" height="655"
+            data-scrapbook-canvas="data:image/png;base64,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AXhAgykVAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgTGLaAAPO7xlz0BAgQIECBAgAABAgQIEKhGYGVlZeu6detOVROQQAgQIECAAAECBAgQINBDAQXgHg6akAkQIECAAAECaxHIxfWlXFy/sJY2LEuAAIFJBbLN2Zx592U6lW3PC5MuZ75xCmR9uTqZH826cmacArIm0L1APodb8hk83X0kIiBAgACBHxfINvoX8rvj2U5/kQ4BAuMRmOX4TAF4POuHTAkQIECAAAECBAgQILBwgZyoviWdbm06fioXq55deBA6JECg9wLZltyYJK7L9IC7xHs/nBKoWCCftR35jB2rOEShERi1QD6jtwegFID3jxpC8gRGJJDP/d6k+5uZvpvP/qcmTV0BeFIp8xEgMLFANkhXZkN0ZOIFzEiAAAECBAgQIDBIgebu37c1yZUi8IcyfT/Hin8wyIQlRYDAXASa4u+vNI0fyjbkT+bSkUYJjFwgn7WPhGBPPmMfHzmF9AkQIECAQDUC2T9fkWB+I9P3so/+7KSBKQBPKmU+AgQmFsgG6a7M/IOxf2PUI1YnXmXMSIAAAQIECAxYIMdEr096uzNdm+mNmU5k+l9zrFj+9UOAAIHLCmQ78u7M9I5VM/6Bu4Avy2YGAgQIECBAgACBEQsoAI948KVOgAABAgQIECBAgACBRQg031g+lb5uzXQ6hZtnFtGvPggQGIZAtiHbk8mvZtqV6bFsQ/5qGJnJggABAgQIECBAgMB8BBSA5+OqVQIECBAgQIAAAQIECBAgQIAAgRYFUgjeluLvyRab1BQBAgQIECBAgACBQQooAA9yWCVFgAABAgQIECBAgAABAgQIECBAgMAiBPLlhJvz5YQnF9GXPggQIECAAAECkwgoAE+iZB4CBAgQIECAAAECBAgQIECAAAECIxIod1wn3eUUNs+OKO2pU22c7smCT8XqB1M3YAECBAgQIECAwBwEFIDngKpJAgQIECBAgAABAgQIECBAgAABAn0WaN7fflYB+PKj6PHklzcyBwECBAgQILBYAQXgxXrrjQABAgQIECBAgAABAgQIECBAgAABAgQIECBAoFKBfLHn9oT2+kxP54tQ36o0TGERuKSAArAVhAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgEAEUgD++fyzK9OFFIA/AYVAHwUU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Otid5Ykcn0422pnGaxVQAK6VU2MECBAgQIAAAQIECBAgQIAAAQIECBAYn0CKAFdl8v/58WUmIwIECBA4l0BV/P1I9bsXcgz4MqnhCCgAD2esREqAAAECBAgQIECAAAECBAgQIECAAIHWBVIEeGc6vT7LwRQAvt56ADokQIAAgdYF8tl/dzq9p+p4MZ//f9h6EDpct4AC8LrpbEiAAAECBAgQIECAAAECBAgQIECAAIHxC6QI8J5kuS/LKykAfGX8GcuQAAECBPLZvxCFD2U5+wjoh6gMR0ABeDhjJVICBAgQIECAAAECBAgQIECAAAECBAi0LpAiwOZ0ekOW/SkAL7YegA4JECBAgACBNQkoAK+Jy8oECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBDor4ACcH/HRmQEXhfINyzL+1VW8u3K/UgIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQInE9AAdj+QaDnAtWL1i9KAfjhnocqPAIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAgY4FFIA7HgDdEyBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAoC4BBeC6JLVDgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgACBjgUUgDseAN0TIECAAAECBAgQIECAQH0CeYXKlrw+5VR9LWqJAAECBAgQIECAAAECBAgMS0ABeFjjJVoCBAgQIECAAAECBAgQeBOBUvzNr25MAfh7kAgQIECAAAECBAgQIECAwFQFFICnOvLyJkCAAAECBAgQIECAAAECBAgQIECAAAECBAgQIEBgdAIKwKMbUgkRIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIDBVAQXgqY68vAkQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQGJ2AAvDohlRCBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAhMVUABeKojL28CBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBEYnoAA8uiGVEAECfRFYWVnZcvHFF5/qSzziIECAAAECBAgQIECAAAECBAgQIECAAAECBMYvoAA8/jGWIQECBAgQIECAAAECBAgQIECAAAECBAgQIECAAIHBC7jxarYhVACezclaBAgQIECAAAECBAgQIECAAAECBDoXyKTnzgTx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gAABAgQITEBAAXgCgyxFAgQIECBAgACBaQhkwvhtmTB+YhrZri3L2NyaLRayfDdGy2vb2toECBAgQKA9gRyzyheWltrrUU8ECBAg0FeBHBNySLjY6yn7OkDiItBjAQXgHg+O0AgQINCUQE4et6Xt+ZxAHmmqD+0SIECAAIG+CZhQ79uIiIcAAQIECBAgQIAAAQIECBBoQkABuAlVbRIgUJtAJmo3V4XKE7U1qqGL4jofhs0pAHO1PxAgQIAAAQIECBAgQIAAAQIECBAgQIAAgREJKACPaDCnkEp5d5t32k1hpH82x4z7nEc1Tm/cZUyAAAECBOoWcAdw3aLaI0CAAAECBAgQIECAAAECBPoooADcx1ER0zkFyoRdflHea/cYIgIECBAgQIAAAQJrFcj55JacS55a63ZvXN97uDYqaHsCBAgQINA/gRzfd+U84dX+RSYiAgQIECBAgMDaBRSA125mixYEctJ9e7rZneXBnHwvttClLggQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgMXkABePBDOL4EUvy9LVn9WpXZIykAf3F8WcqIAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAQP0CCsD1m2pxgwIpAN+bJj5eNbM/BeD/tcEmbU6AAAECBAgQIECAAAECBAgQIECAAAECBNYtkHnrHdl4Z+arn1t3IzYkQIBASwIKwC1B62Z2gepdv/80W+zKUh4B/fjsW1uTAAECBAgQIECAAAECBAgQIECAAAECBAjUK5B563emxVIELk+tPFxv61ojQIBAvQIKwPV6ao0AAQIECBAgQIAAAQIECBAgQIAAAQKTFUiR7OoUxw5MFkDioxXIvr03yZU7gJ8abZISI0BgNAL/H4Urh8zA4DJbAAAAAElFTkSuQmCC"></canvas>
+    </section>
+    <!-- ==========>> Banner Section Ends Here <<========== -->
+
+
+
+
+    <section class="banner padding-top">
+        <div class="container">
+            <div class="banner__wrapper">
+                <div class="row g-5 justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="banner__content text-center aos-init aos-animate" data-aos="fade-right"
+                            data-aos-duration="1000" style="margin-top: 500px;">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- <section class="banner padding-top">
+        <div class="container">
+            <div class="banner__wrapper">
+                <div class="row g-5 justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="banner__content text-center" data-aos="fade-right" data-aos-duration="1000">
+                            <p>Lorem Ipsum is simply dummy text of the printing typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown</p>
+                            <a href="#about" class="default-btn"><span>Explore more</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+
+
+    <!-- ==========>> About Section start Here <<========== -->
+
+    <!-- ==========>> About Section Ends Here <<========== -->
+
+
+    <!-- ==========>> partner Section start Here <<========== -->
+
+    <!-- ==========>> partner Section Ends Here <<========== -->
+
+
+
+    <!-- ==========>> Feature Section start Here <<========== -->
+
+    <!-- ==========>> Feature Section Ends Here <<========== -->
+
+
+
+
+    <!-- ==========>> Service Section start Here <<========== -->
+
+    <!-- ==========>> Service Section Ends Here <<========== -->
+
+
+
+
+    <!-- ==========>> Counter Section start Here <<========== -->
+
+    <!-- ==========>> Counter Section Ends Here <<========== -->
+
+
+    <!-- ==========>> Roadmap Section start Here <<========== -->
+
+    <!-- ==========>> Roadmap Section Ends Here <<========== -->
+
+
+    <!-- ==========>> Document Section start Here <<========== -->
+
+    <!-- ==========>> Document Section Ends Here <<========== -->
+
+
+    <!-- ==========>> Team Section start Here <<========== -->
+    <!-- <section class="team padding-top padding-bottom shape-1r" id="team">
+        <div class="container">
+            <div class="section-header section-header--middle">
+                <div class="title-label">Our team</div>
+                <h3>Awesome Members</h3>
+            </div>
+            <div class="team__wrapper">
+                <div class="row justify-content-center g-4">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="team__item" data-aos="fade-up" data-aos-duration="800">
+                            <div class="team__thumb">
+                                <img src="assets/images/team/01.jpg" alt="Team Member Image">
+                            </div>
+                            <div class="team__content">
+                                <ul class="social">
+                                    <li class="social__item">
+                                        <a href="#" class="social__link"><i class="fab fa-facebook-f"></i></a>
+                                    </li>
+                                    <li class="social__item">
+                                        <a href="#" class="social__link"><i class="fab fa-linkedin-in"></i></a>
+                                    </li>
+                                    <li class="social__item">
+                                        <a href="#" class="social__link"><i class="fab fa-twitter"></i></a>
+                                    </li>
+
+                                </ul>
+                                <h4><a href="#">David Warner</a></h4>
+                                <p>Co-Founder</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="team__item" data-aos="fade-up" data-aos-duration="1000">
+                            <div class="team__thumb">
+                                <img src="assets/images/team/02.jpg" alt="Team Member Image">
+                            </div>
+                            <div class="team__content">
+                                <ul class="social">
+                                    <li class="social__item">
+                                        <a href="#" class="social__link"><i class="fab fa-facebook-f"></i></a>
+                                    </li>
+                                    <li class="social__item">
+                                        <a href="#" class="social__link"><i class="fab fa-linkedin-in"></i></a>
+                                    </li>
+                                    <li class="social__item">
+                                        <a href="#" class="social__link"><i class="fab fa-twitter"></i></a>
+                                    </li>
+
+                                </ul>
+                                <h4><a href="#">Chris Hales</a></h4>
+                                <p>UI/UX Designer</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="team__item" data-aos="fade-up" data-aos-duration="1500">
+                            <div class="team__thumb">
+                                <img src="assets/images/team/03.jpg" alt="Team Member Image">
+                            </div>
+                            <div class="team__content">
+                                <ul class="social">
+                                    <li class="social__item">
+                                        <a href="#" class="social__link"><i class="fab fa-facebook-f"></i></a>
+                                    </li>
+                                    <li class="social__item">
+                                        <a href="#" class="social__link"><i class="fab fa-linkedin-in"></i></a>
+                                    </li>
+                                    <li class="social__item">
+                                        <a href="#" class="social__link"><i class="fab fa-twitter"></i></a>
+                                    </li>
+
+                                </ul>
+                                <h4><a href="#">Jhon Doe</a></h4>
+                                <p>Marketing Manager</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="team__item" data-aos="fade-up" data-aos-duration="1500">
+                            <div class="team__thumb">
+                                <img src="assets/images/team/04.jpg" alt="Team Member Image">
+                            </div>
+                            <div class="team__content">
+                                <ul class="social">
+                                    <li class="social__item">
+                                        <a href="#" class="social__link"><i class="fab fa-facebook-f"></i></a>
+                                    </li>
+                                    <li class="social__item">
+                                        <a href="#" class="social__link"><i class="fab fa-linkedin-in"></i></a>
+                                    </li>
+                                    <li class="social__item">
+                                        <a href="#" class="social__link"><i class="fab fa-twitter"></i></a>
+                                    </li>
+
+                                </ul>
+                                <h4><a href="#">Evan Young</a></h4>
+                                <p>Advisor </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!-- ==========>> Team Section Ends Here <<========== -->
+
+
+
+    <!-- ==========>> faq Section start Here <<========== -->
+    <!-- <section class="faq padding-bottom shape-1r" id="faq">
+        <div class="container">
+            <div class="section-header section-header--middle">
+                <div class="title-label">faq</div>
+                <h3>We got answers</h3>
+            </div>
+            <div class="faq__wrapper" data-aos="fade-up" data-aos-duration="1000">
+                <ul class="faq__tab nav nav-pills mb-5" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="pills-general-tab" data-bs-toggle="pill" data-bs-target="#pills-general" type="button" role="tab" aria-controls="pills-general" aria-selected="true">General Questions</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-token-tab" data-bs-toggle="pill" data-bs-target="#pills-token" type="button" role="tab" aria-controls="pills-token" aria-selected="false">Token Sales</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-investor-tab" data-bs-toggle="pill" data-bs-target="#pills-investor" type="button" role="tab" aria-controls="pills-investor" aria-selected="false">Investor Guides</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-security-tab" data-bs-toggle="pill" data-bs-target="#pills-security" type="button" role="tab" aria-controls="pills-security" aria-selected="false">Security</button>
+                    </li>
+                </ul>
+                <div class="tab-content faq__content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-general" role="tabpanel" aria-labelledby="pills-general-tab">
+                        <div class="row gy-3 gx-5">
+                            <div class="col-lg-6">
+                                <div class="accordion accordion-flush" id="accordionGeneral1">
+                                    <div class="accordion-item">
+                                        <h6 class="accordion-header" id="general1-headingOne">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#general1-collapseOne" aria-expanded="false" aria-controls="general1-collapseOne">
+                                                Is cryptocurrency used for illegal activities?
+                                            </button>
+                                        </h6>
+                                        <div id="general1-collapseOne" class="accordion-collapse collapse" aria-labelledby="general1-headingOne" data-bs-parent="#accordionGeneral1">
+                                            <div class="accordion-body">Fundamentally seller sells their currency to gain cash and a buyer buys expecting hold the currency until value increases in dollar/rupee terms In mid-August 202 total market value of all cryptocurrency exceeded
+                                                $2 trillion, with Bitcoin alone making up 44% of that.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h6 class="accordion-header" id="general-headingTwo">
+                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#general-collapseTwo" aria-expanded="false" aria-controls="general-collapseTwo">
+                                                How to start trading in cryptocurrencies?
+                                            </button>
+                                        </h6>
+                                        <div id="general-collapseTwo" class="accordion-collapse collapse show" aria-labelledby="general-headingTwo" data-bs-parent="#accordionGeneral1">
+                                            <div class="accordion-body">Fundamentally seller sells their currency to gain cash and a buyer buys expecting hold the currency until value increases in dollar/rupee terms In mid-August 202 total market value of all cryptocurrency exceeded
+                                                $2 trillion, with Bitcoin alone making up 44% of that.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h6 class="accordion-header" id="general-headingThree">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#general-collapseThree" aria-expanded="false" aria-controls="general-collapseThree">
+                                                How to trade in cryptocurrencies in a safe way?
+                                            </button>
+                                        </h6>
+                                        <div id="general-collapseThree" class="accordion-collapse collapse" aria-labelledby="general-headingThree" data-bs-parent="#accordionGeneral1">
+                                            <div class="accordion-body">Fundamentally seller sells their currency to gain cash and a buyer buys expecting hold the currency until value increases in dollar/rupee terms In mid-August 202 total market value of all cryptocurrency exceeded
+                                                $2 trillion, with Bitcoin alone making up 44% of that.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="accordion accordion-flush" id="accordionGeneral2">
+                                    <div class="accordion-item">
+                                        <h6 class="accordion-header" id="general2-headingOne">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#general2-collapseOne" aria-expanded="false" aria-controls="general2-collapseOne">
+                                                How do I make money by trading cryptocurrencies?
+                                            </button>
+                                        </h6>
+                                        <div id="general2-collapseOne" class="accordion-collapse collapse" aria-labelledby="general2-headingOne" data-bs-parent="#accordionGeneral2">
+                                            <div class="accordion-body">Fundamentally seller sells their currency to gain cash and a buyer buys expecting hold the currency until value increases in dollar/rupee terms In mid-August 202 total market value of all cryptocurrency exceeded
+                                                $2 trillion, with Bitcoin alone making up 44% of that.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h6 class="accordion-header" id="general2-headingTwo">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#general2-collapseTwo" aria-expanded="false" aria-controls="general2-collapseTwo">
+                                                How do I make money by trading cryptocurrencies?
+                                            </button>
+                                        </h6>
+                                        <div id="general2-collapseTwo" class="accordion-collapse collapse" aria-labelledby="general2-headingTwo" data-bs-parent="#accordionGeneral2">
+                                            <div class="accordion-body">Fundamentally seller sells their currency to gain cash and a buyer buys expecting hold the currency until value increases in dollar/rupee terms In mid-August 202 total market value of all cryptocurrency exceeded
+                                                $2 trillion, with Bitcoin alone making up 44% of that.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h6 class="accordion-header" id="general2-headingThree">
+                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#general2-collapseThree" aria-expanded="false" aria-controls="general2-collapseThree">
+                                                How to start trading in cryptocurrencies?
+                                            </button>
+                                        </h6>
+                                        <div id="general2-collapseThree" class="accordion-collapse collapse show" aria-labelledby="general2-headingThree" data-bs-parent="#accordionGeneral2">
+                                            <div class="accordion-body">Fundamentally seller sells their currency to gain cash and a buyer buys expecting hold the currency until value increases in dollar/rupee terms In mid-August 202 total market value of all cryptocurrency exceeded
+                                                $2 trillion, with Bitcoin alone making up 44% of that.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="pills-token" role="tabpanel" aria-labelledby="pills-token-tab">
+                        <div class="row gy-3 gx-5">
+                            <div class="col-lg-6">
+                                <div class="accordion accordion-flush" id="accordionToken1">
+                                    <div class="accordion-item">
+                                        <h6 class="accordion-header" id="token1-headingOne">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#token1-collapseOne" aria-expanded="false" aria-controls="token1-collapseOne">
+                                                How to start trading in cryptocurrencies?
+                                            </button>
+                                        </h6>
+                                        <div id="token1-collapseOne" class="accordion-collapse collapse" aria-labelledby="token1-headingOne" data-bs-parent="#accordionToken1">
+                                            <div class="accordion-body">Fundamentally seller sells their currency to gain cash and a buyer buys expecting hold the currency until value increases in dollar/rupee terms In mid-August 202 total market value of all cryptocurrency exceeded
+                                                $2 trillion, with Bitcoin alone making up 44% of that.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h6 class="accordion-header" id="token-headingTwo">
+                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#token-collapseTwo" aria-expanded="false" aria-controls="token-collapseTwo">
+                                                How do I make money by trading cryptocurrencies?
+                                            </button>
+                                        </h6>
+                                        <div id="token-collapseTwo" class="accordion-collapse collapse show" aria-labelledby="token-headingTwo" data-bs-parent="#accordionToken1">
+                                            <div class="accordion-body">Fundamentally seller sells their currency to gain cash and a buyer buys expecting hold the currency until value increases in dollar/rupee terms In mid-August 202 total market value of all cryptocurrency exceeded
+                                                $2 trillion, with Bitcoin alone making up 44% of that.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h6 class="accordion-header" id="token-headingThree">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#token-collapseThree" aria-expanded="false" aria-controls="token-collapseThree">
+                                                How do I make money by trading cryptocurrencies?
+                                            </button>
+                                        </h6>
+                                        <div id="token-collapseThree" class="accordion-collapse collapse" aria-labelledby="token-headingThree" data-bs-parent="#accordionToken1">
+                                            <div class="accordion-body">Fundamentally seller sells their currency to gain cash and a buyer buys expecting hold the currency until value increases in dollar/rupee terms In mid-August 202 total market value of all cryptocurrency exceeded
+                                                $2 trillion, with Bitcoin alone making up 44% of that.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="accordion accordion-flush" id="accordionToken2">
+                                    <div class="accordion-item">
+                                        <h6 class="accordion-header" id="token2-headingOne">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#token2-collapseOne" aria-expanded="false" aria-controls="token2-collapseOne">
+                                                How to trade in cryptocurrencies in a safe way?
+                                            </button>
+                                        </h6>
+                                        <div id="token2-collapseOne" class="accordion-collapse collapse" aria-labelledby="token2-headingOne" data-bs-parent="#accordionToken2">
+                                            <div class="accordion-body">Fundamentally seller sells their currency to gain cash and a buyer buys expecting hold the currency until value increases in dollar/rupee terms In mid-August 202 total market value of all cryptocurrency exceeded
+                                                $2 trillion, with Bitcoin alone making up 44% of that.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h6 class="accordion-header" id="token2-headingTwo">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#token2-collapseTwo" aria-expanded="false" aria-controls="token2-collapseTwo">
+                                                How to start trading in cryptocurrencies?
+                                            </button>
+                                        </h6>
+                                        <div id="token2-collapseTwo" class="accordion-collapse collapse" aria-labelledby="token2-headingTwo" data-bs-parent="#accordionToken2">
+                                            <div class="accordion-body">Fundamentally seller sells their currency to gain cash and a buyer buys expecting hold the currency until value increases in dollar/rupee terms In mid-August 202 total market value of all cryptocurrency exceeded
+                                                $2 trillion, with Bitcoin alone making up 44% of that.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h6 class="accordion-header" id="token2-headingThree">
+                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#token2-collapseThree" aria-expanded="false" aria-controls="token2-collapseThree">
+                                                Is cryptocurrency used for illegal activities?
+                                            </button>
+                                        </h6>
+                                        <div id="token2-collapseThree" class="accordion-collapse collapse show" aria-labelledby="token2-headingThree" data-bs-parent="#accordionToken2">
+                                            <div class="accordion-body">Fundamentally seller sells their currency to gain cash and a buyer buys expecting hold the currency until value increases in dollar/rupee terms In mid-August 202 total market value of all cryptocurrency exceeded
+                                                $2 trillion, with Bitcoin alone making up 44% of that.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="pills-investor" role="tabpanel" aria-labelledby="pills-investor-tab">
+                        <div class="row gy-3 gx-5">
+                            <div class="col-lg-6">
+                                <div class="accordion accordion-flush" id="accordionInvestor1">
+                                    <div class="accordion-item">
+                                        <h6 class="accordion-header" id="investor1-headingOne">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#investor1-collapseOne" aria-expanded="false" aria-controls="investor1-collapseOne">
+                                                Is cryptocurrency used for illegal activities?
+                                            </button>
+                                        </h6>
+                                        <div id="investor1-collapseOne" class="accordion-collapse collapse" aria-labelledby="investor1-headingOne" data-bs-parent="#accordionInvestor1">
+                                            <div class="accordion-body">Fundamentally seller sells their currency to gain cash and a buyer buys expecting hold the currency until value increases in dollar/rupee terms In mid-August 202 total market value of all cryptocurrency exceeded
+                                                $2 trillion, with Bitcoin alone making up 44% of that.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h6 class="accordion-header" id="investor-headingTwo">
+                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#investor-collapseTwo" aria-expanded="false" aria-controls="investor-collapseTwo">
+                                                How to start trading in cryptocurrencies?
+                                            </button>
+                                        </h6>
+                                        <div id="investor-collapseTwo" class="accordion-collapse collapse show" aria-labelledby="investor-headingTwo" data-bs-parent="#accordionInvestor1">
+                                            <div class="accordion-body">Fundamentally seller sells their currency to gain cash and a buyer buys expecting hold the currency until value increases in dollar/rupee terms In mid-August 202 total market value of all cryptocurrency exceeded
+                                                $2 trillion, with Bitcoin alone making up 44% of that.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h6 class="accordion-header" id="investor-headingThree">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#investor-collapseThree" aria-expanded="false" aria-controls="investor-collapseThree">
+                                                How to trade in cryptocurrencies in a safe way?
+                                            </button>
+                                        </h6>
+                                        <div id="investor-collapseThree" class="accordion-collapse collapse" aria-labelledby="investor-headingThree" data-bs-parent="#accordionInvestor1">
+                                            <div class="accordion-body">Fundamentally seller sells their currency to gain cash and a buyer buys expecting hold the currency until value increases in dollar/rupee terms In mid-August 202 total market value of all cryptocurrency exceeded
+                                                $2 trillion, with Bitcoin alone making up 44% of that.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="accordion accordion-flush" id="accordionInvestor2">
+                                    <div class="accordion-item">
+                                        <h6 class="accordion-header" id="investor2-headingOne">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#investor2-collapseOne" aria-expanded="false" aria-controls="investor2-collapseOne">
+                                                How do I make money by trading cryptocurrencies?
+                                            </button>
+                                        </h6>
+                                        <div id="investor2-collapseOne" class="accordion-collapse collapse" aria-labelledby="investor2-headingOne" data-bs-parent="#accordionInvestor2">
+                                            <div class="accordion-body">Fundamentally seller sells their currency to gain cash and a buyer buys expecting hold the currency until value increases in dollar/rupee terms In mid-August 202 total market value of all cryptocurrency exceeded
+                                                $2 trillion, with Bitcoin alone making up 44% of that.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h6 class="accordion-header" id="investor2-headingTwo">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#investor2-collapseTwo" aria-expanded="false" aria-controls="investor2-collapseTwo">
+                                                How do I make money by trading cryptocurrencies?
+                                            </button>
+                                        </h6>
+                                        <div id="investor2-collapseTwo" class="accordion-collapse collapse" aria-labelledby="investor2-headingTwo" data-bs-parent="#accordionInvestor2">
+                                            <div class="accordion-body">Fundamentally seller sells their currency to gain cash and a buyer buys expecting hold the currency until value increases in dollar/rupee terms In mid-August 202 total market value of all cryptocurrency exceeded
+                                                $2 trillion, with Bitcoin alone making up 44% of that.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h6 class="accordion-header" id="investor2-headingThree">
+                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#investor2-collapseThree" aria-expanded="false" aria-controls="investor2-collapseThree">
+                                                How to start trading in cryptocurrencies?
+                                            </button>
+                                        </h6>
+                                        <div id="investor2-collapseThree" class="accordion-collapse collapse show" aria-labelledby="investor2-headingThree" data-bs-parent="#accordionInvestor2">
+                                            <div class="accordion-body">Fundamentally seller sells their currency to gain cash and a buyer buys expecting hold the currency until value increases in dollar/rupee terms In mid-August 202 total market value of all cryptocurrency exceeded
+                                                $2 trillion, with Bitcoin alone making up 44% of that.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="pills-security" role="tabpanel" aria-labelledby="pills-security-tab">
+                        <div class="row gy-3 gx-5">
+                            <div class="col-lg-6">
+                                <div class="accordion accordion-flush" id="accordionSecurity1">
+                                    <div class="accordion-item">
+                                        <h6 class="accordion-header" id="security1-headingOne">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#security1-collapseOne" aria-expanded="false" aria-controls="security1-collapseOne">
+                                                How to start trading in cryptocurrencies?
+                                            </button>
+                                        </h6>
+                                        <div id="security1-collapseOne" class="accordion-collapse collapse" aria-labelledby="security1-headingOne" data-bs-parent="#accordionSecurity1">
+                                            <div class="accordion-body">Fundamentally seller sells their currency to gain cash and a buyer buys expecting hold the currency until value increases in dollar/rupee terms In mid-August 202 total market value of all cryptocurrency exceeded
+                                                $2 trillion, with Bitcoin alone making up 44% of that.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h6 class="accordion-header" id="security-headingTwo">
+                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#security-collapseTwo" aria-expanded="false" aria-controls="security-collapseTwo">
+                                                How do I make money by trading cryptocurrencies?
+                                            </button>
+                                        </h6>
+                                        <div id="security-collapseTwo" class="accordion-collapse collapse show" aria-labelledby="security-headingTwo" data-bs-parent="#accordionSecurity1">
+                                            <div class="accordion-body">Fundamentally seller sells their currency to gain cash and a buyer buys expecting hold the currency until value increases in dollar/rupee terms In mid-August 202 total market value of all cryptocurrency exceeded
+                                                $2 trillion, with Bitcoin alone making up 44% of that.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h6 class="accordion-header" id="security-headingThree">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#security-collapseThree" aria-expanded="false" aria-controls="security-collapseThree">
+                                                How to trade in cryptocurrencies in a safe way?
+                                            </button>
+                                        </h6>
+                                        <div id="security-collapseThree" class="accordion-collapse collapse" aria-labelledby="security-headingThree" data-bs-parent="#accordionSecurity1">
+                                            <div class="accordion-body">Fundamentally seller sells their currency to gain cash and a buyer buys expecting hold the currency until value increases in dollar/rupee terms In mid-August 202 total market value of all cryptocurrency exceeded
+                                                $2 trillion, with Bitcoin alone making up 44% of that.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="accordion accordion-flush" id="accordionSecurity2">
+                                    <div class="accordion-item">
+                                        <h6 class="accordion-header" id="security2-headingOne">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#security2-collapseOne" aria-expanded="false" aria-controls="security2-collapseOne">
+                                                How to trade in cryptocurrencies in a safe way?
+                                            </button>
+                                        </h6>
+                                        <div id="security2-collapseOne" class="accordion-collapse collapse" aria-labelledby="security2-headingOne" data-bs-parent="#accordionSecurity2">
+                                            <div class="accordion-body">Fundamentally seller sells their currency to gain cash and a buyer buys expecting hold the currency until value increases in dollar/rupee terms In mid-August 202 total market value of all cryptocurrency exceeded
+                                                $2 trillion, with Bitcoin alone making up 44% of that.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h6 class="accordion-header" id="security2-headingTwo">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#security2-collapseTwo" aria-expanded="false" aria-controls="security2-collapseTwo">
+                                                What is Crypto?
+                                            </button>
+                                        </h6>
+                                        <div id="security2-collapseTwo" class="accordion-collapse collapse" aria-labelledby="security2-headingTwo" data-bs-parent="#accordionSecurity2">
+                                            <div class="accordion-body">Fundamentally seller sells their currency to gain cash and a buyer buys expecting hold the currency until value increases in dollar/rupee terms In mid-August 202 total market value of all cryptocurrency exceeded
+                                                $2 trillion, with Bitcoin alone making up 44% of that.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h6 class="accordion-header" id="security2-headingThree">
+                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#security2-collapseThree" aria-expanded="false" aria-controls="security2-collapseThree">
+                                                How to trade in cryptocurrencies in a safe way?
+                                            </button>
+                                        </h6>
+                                        <div id="security2-collapseThree" class="accordion-collapse collapse show" aria-labelledby="security2-headingThree" data-bs-parent="#accordionSecurity2">
+                                            <div class="accordion-body">Fundamentally seller sells their currency to gain cash and a buyer buys expecting hold the currency until value increases in dollar/rupee terms In mid-August 202 total market value of all cryptocurrency exceeded
+                                                $2 trillion, with Bitcoin alone making up 44% of that.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section> -->
+    <!-- ==========>> faq Section Ends Here <<========== -->
+
+
+
+    <!-- ==========>> Contact Section start Here <<========== -->
+    <!-- <section class="contact padding-bottom" id="contact">
+        <div class="container">
+            <div class="section-header section-header--middle" data-aos="fade-up" data-aos-duration="1000">
+                <div class="title-label">Contact</div>
+                <h3>Connect with us </h3>
+            </div>
+            <div class="contact__wrapper" data-aos="fade-up" data-aos-duration="1500">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <form action="contact.php" method="post" class="contact__form" id="contact-form">
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <div class="input-group">
+                                        <span class="input-group-text" id="fullName"><i class="far fa-user"></i></span>
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter your Full name" aria-label="fullName" aria-describedby="fullName">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="far fa-envelope"></i></span>
+                                        <input type="email" id="email" name="email" class="form-control" placeholder="Enter email address" aria-label="email">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-group">
+                                        <span class="input-group-text" id="mobileNumber"><i class="fas fa-phone-alt"></i></span>
+                                        <input type="tel" class="form-control" placeholder="Enter phone number" aria-label="mobileNumber" aria-describedby="mobileNumber">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-clipboard-list"></i></span>
+                                        <input type="text" id="subject" name="subject" class="form-control" placeholder="Subject" aria-label="subject">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="input-group">
+                                        <textarea class="form-control" id="msg" name="msg" placeholder="Type your massage" rows="10"></textarea>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="text-center mt-5">
+                                <button type="submit" id="submit" name="submit" class="default-btn default-btn--move-right"><span>Send
+                                        Message</span></button>
+                            </div>
+                        </form>
+                        <p class="form-message mt-5 text-center"></p>
+                    </div>
+                </div>
+
+            </div>
+        </div> -->
+
+    <!-- ==========>> Contact Section Ends Here <<========== -->
+
+
+
+    <!-- ==========>> Newsletter Section start Here <<========== -->
+    <!-- <section class="newsletter" data-aos="fade-up" data-aos-duration="1000">
+        <div class="container">
+            <div class="newsletter__wrapper" style="background-image:url(assets/images/newsletter/bg.png)">
+                <div class="section-header section-header--middle">
+                    <h3>Subscribe to newsletter</h3>
+                    <p>Learning how cryptocurrency works is like learning a new language it is incredibly difficult at the beginning</p>
+                </div>
+                <div class="newsletter__form">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-6">
+                            <form action="#">
+                                <input type="email" class="form-control" placeholder="Email address" aria-label="Newsletter Email">
+                                <button type="submit">Subscribe
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!-- ==========>> Newsletter Section Ends Here <<========== -->
+
+
+
+
+
+    <!-- ==========>> Footer Section start Here <<========== -->
+
+    <!-- ==========>> Footer Section Ends Here <<========== -->
+
+
+    <!-- vendor plugins -->
+
+
+
+
+
+
+
+
+
+
+    <iframe height="1" width="1" style="position: absolute; top: 0px; left: 0px; border: medium; visibility: hidden;"
+        src="index_1.html"></iframe>
+
+
+
+    <script
+        data-scrapbook-elem="basic-loader">(function () { var k1 = "data-scrapbook-shadowdom", k2 = "data-scrapbook-canvas", k3 = "data-scrapbook-input-indeterminate", k4 = "data-scrapbook-input-checked", k5 = "data-scrapbook-option-selected", k6 = "data-scrapbook-input-value", k7 = "data-scrapbook-textarea-value", fn = function (r) { var E = r.querySelectorAll ? r.querySelectorAll("*") : r.getElementsByTagName("*"), i = E.length, e, d, s; while (i--) { e = E[i]; if ((d = e.getAttribute(k1)) !== null && !e.shadowRoot && e.attachShadow) { s = e.attachShadow({ mode: 'open' }); s.innerHTML = d; e.removeAttribute(k1); } if ((d = e.getAttribute(k2)) !== null) { (function () { var c = e, g = new Image(); g.onload = function () { c.getContext('2d').drawImage(g, 0, 0); }; g.src = d; })(); e.removeAttribute(k2); } if ((d = e.getAttribute(k3)) !== null) { e.indeterminate = true; e.removeAttribute(k3); } if ((d = e.getAttribute(k4)) !== null) { e.checked = d === 'true'; e.removeAttribute(k4); } if ((d = e.getAttribute(k5)) !== null) { e.selected = d === 'true'; e.removeAttribute(k5); } if ((d = e.getAttribute(k6)) !== null) { e.value = d; e.removeAttribute(k6); } if ((d = e.getAttribute(k7)) !== null) { e.value = d; e.removeAttribute(k7); } if (e.shadowRoot) { fn(e.shadowRoot); } } }; fn(document); })()</script>
+</body>
+
+</html>
